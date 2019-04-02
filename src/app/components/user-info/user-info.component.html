@@ -1,0 +1,63 @@
+<div><ng-flash-message></ng-flash-message></div>
+<div class="text-center mt-2"><button class="btn btn-primary center-block mr-3"(click)="onBack()">Back</button>
+<button class="btn btn-success center-block" (click)="onEdit()" >Edit</button></div>
+<div class="text-center mt-2">
+  <form>
+  <input type="text"
+         [ngModel]="user?.name"
+         #userName="ngModel"
+         (ngModelChange)="user.name = $event"
+          name="name"
+         [readOnly]="!isEdit"
+         [class.is-invalid]="userName.invalid && userName.dirty"
+         required
+         minlength="2"
+  ><br>
+  <input type="text"
+         [ngModel]="user?.email"
+         #email="ngModel"
+         (ngModelChange)="user.email = $event"
+         name="email"
+         [readOnly]="!isEdit"
+         [class.is-invalid]="email.invalid && email.dirty"
+         required
+         minlength="2"
+  ><br>
+  <input type="text"
+         [ngModel]="user?.phone"
+         #phone="ngModel"
+         (ngModelChange)="user.phone = $event"
+         name="phone"
+         [readOnly]="!isEdit"
+         [class.is-invalid]="phone.invalid && phone.dirty"
+         required
+         minlength="2"
+  ><br>
+  <input type="text"
+         [ngModel]="user?.username"
+         #userUsername="ngModel"
+         (ngModelChange)="user.username = $event"
+         name="username"
+         [readOnly]="!isEdit"
+         [class.is-invalid]="userUsername.invalid && userUsername.dirty"
+         required
+         minlength="2"
+  ><br>
+  <input type="text"
+         [class.is-invalid]="website.invalid && website.dirty"
+         [ngModel]="user?.website"
+         (ngModelChange)="user.website = $event"
+         name="website"
+         #website="ngModel"
+         required
+         minlength="2"
+         [readOnly]="!isEdit"
+  ><br>
+  <button class='btn-dark'(click)="onSubmiteForm()"
+          [disabled]="userName.invalid || userUsername.invalid || email.invalid || phone.invalid || website.invalid"
+  >
+    Submit
+  </button>
+</form>
+</div>
+
